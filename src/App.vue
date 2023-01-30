@@ -1,16 +1,37 @@
 <template>
-  <BlogPost />
+  <BlogData />
+  <BlogList />
+  <NewBlog @add-blog="addBlog"/>
 </template>
 
 <script>
- import BlogPost from "./components/BlogPost.vue"
+ import BlogData from "./components/BlogData.vue"
+ import BlogList from "./components/BlogList.vue"
+ import NewBlog from "./components/NewBlog.vue"
 
 export default {
 
   name: 'App',
   components: {
    // eslint-disable-next-line   
-   BlogPost
+   BlogData,
+   BlogList,
+   NewBlog
+
+  },
+  data(){
+    return{
+        blogs: [],
+        showAddBlog: false
+    }
+  },
+  methods:{
+    toggleAddBlog(){
+        this.showAddBlog = !this.sohwAddBlog
+    },
+    addBlog(blog){
+        this.blogs =[...this.blogs, blog]
+    }
   }
 }
 </script>

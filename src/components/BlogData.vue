@@ -1,23 +1,26 @@
 
 <template>
-      <div v-bind:key="blog.id" v-for="blog of blogs">
-6  |        <h2>{{ blog.title }}</h2>
-7  |       <p>{{ blog.text }}</p>
-8  |       <img src="{{blog.img}}" alt="computer-image"/>
-   |                              ^
-9  |    </div>
-10 |  
+    <div class="blog-list">
+    
+      <BlogList :blogs="blogs"/>
+    
+    </div>
 
 </template>
 
 <script>
+  import BlogList from './BlogList.vue'
  import image1 from "../assets/image1.avif"
  import image2 from "../assets/image2.avif"
  import image3 from "../assets/image3.avif"
  import image4 from "../assets/image4.avif"
  
   export default {
-     name: 'BlogPost',
+     name: 'BlogData',
+     components: {
+        BlogList
+     },
+
      data(){
         return{
            blogs:[
@@ -45,7 +48,7 @@
         //  icons: AiOutlineStar,
          text: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur numquam eos delectus necessitatibus? Minima, aliquam, officia incidunt inventore veritatis obcaecati harum, rerum ab asperiores iste totam corporis alias accusantium eligendi.
          Eaque porro velit cumque reprehenderit. `,
-         img: image3,
+         img:  image3,
          isFavorite: true,
       },
      {
@@ -66,3 +69,13 @@
   }
 
 </script>
+
+<style>
+  .blog-list{
+  display: flex;
+
+  flex-wrap: wrap;
+  margin-left: 100px;
+}
+
+</style>
