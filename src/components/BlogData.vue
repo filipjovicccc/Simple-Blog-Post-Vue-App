@@ -1,6 +1,6 @@
 
 <template>
-    <div class="blog-list">
+    <div >
     
       <BlogList :blogs="blogs"/>
     

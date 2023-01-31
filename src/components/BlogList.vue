@@ -1,13 +1,15 @@
 <template>
-  <article className="article">
+  <div class="blog-list">
  
-      <div class="section" v-for="blog in blogs" :key="blog.id">
+      <article class="article" v-for="blog in blogs" :key="blog.id">
         <img class="images" :src="blog.img" alt="Image">
-       <h2>{{ blog.title }}</h2> 
-       <p>{{ blog.text }}</p> 
-      </div>
+        <div class="section">
+            <h2>{{ blog.title }}</h2> 
+        </div>
+            <p>{{ blog.text }}</p> 
+      </article>
    
-  </article>
+  </div>
 </template>
 <script>
   export default {

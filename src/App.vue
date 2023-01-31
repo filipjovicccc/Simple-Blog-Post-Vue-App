@@ -1,13 +1,19 @@
 <template>
-  <BlogData />
-  <BlogList />
+  <HeaderSection  @toggle-add-blog="toggleAddBlog"/>
+  <div v-show="showAddBlog">
   <NewBlog @add-blog="addBlog"/>
+  
+  </div>
+  <BlogData />
+  <BlogList :blogs="blogs"/>
+  
 </template>
 
 <script>
  import BlogData from "./components/BlogData.vue"
  import BlogList from "./components/BlogList.vue"
  import NewBlog from "./components/NewBlog.vue"
+ import HeaderSection from "./components/HeaderSection.vue"
 
 export default {
 
@@ -16,7 +22,8 @@ export default {
    // eslint-disable-next-line   
    BlogData,
    BlogList,
-   NewBlog
+   NewBlog,
+   HeaderSection
 
   },
   data(){
@@ -27,7 +34,7 @@ export default {
   },
   methods:{
     toggleAddBlog(){
-        this.showAddBlog = !this.sohwAddBlog
+        this.showAddBlog = !this.showAddBlog
     },
     addBlog(blog){
         this.blogs =[...this.blogs, blog]

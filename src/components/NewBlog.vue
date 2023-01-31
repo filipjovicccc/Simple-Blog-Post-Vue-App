@@ -1,5 +1,5 @@
 <template>
-  <form @submit="onSubmit">
+  <form class="form-control" @submit="onSubmit">
   <label>Enter title name</label>
   <input type="text" v-model="title" name="title"/>
   <label>Enter blog text here</label>
@@ -59,8 +59,6 @@ export default{
             this.day = ""
             this.img= " "
   
-
-
         }
     }
 }
@@ -69,6 +67,40 @@ export default{
 </script>
 
 <style>
+  .form-control{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    gap: 1rem;
+    max-width: 500px;
+    text-align: left;
+    background-color: white;
+}
+
+.form-control label{
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    display: block;
+
+}
+
+.form-control input {
+    font: inherit;
+    padding: 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    width: 20rem;
+    max-width: 100%}
+
+    .btn {
+        background-color: rgb(0, 34, 255);
+        width: 150px;
+        height: 38px;
+        border-radius: 7px 7px 7px 7px;
+        color: white;
+        margin-right: 15px;
+      }
 
 
 </style>
